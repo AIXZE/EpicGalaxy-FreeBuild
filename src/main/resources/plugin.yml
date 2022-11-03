@@ -1,0 +1,20 @@
+name: FreeBuild
+version: '1.0-SNAPSHOT'
+main: de.aixze.freebuild.main.Main
+api-version: 1.19
+authors: [ AIXZE ]
+description: FreeBuild - For EpicGalaxy by AIXZE.
+website: https://www.aixze.de
+
+depend:
+  - EpicGalaxy-Utils
+
+commands:
+  position:
+    aliases:
+      - pos
+    description: Sendet eine Nachricht der Position an alle Spieler.
+  set:
+    description: Setzt die Insel- und Spawnposition.
+  tpa:
+    description: verwaltet die TPA-Anfragen eines Spielers.
