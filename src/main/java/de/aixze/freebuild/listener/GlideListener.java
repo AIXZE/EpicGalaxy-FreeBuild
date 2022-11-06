@@ -30,7 +30,7 @@ public class GlideListener implements Listener {
     public void handleMove(final PlayerMoveEvent e) {
         Player p = e.getPlayer();
 
-        if (SpawnLocations.isInsideSpawnArea(p) && p.getFallDistance() >= 3) {
+        if (SpawnLocations.isInsideSpawnArea(p.getLocation()) && p.getFallDistance() >= 3) {
             this.glideList.add(p.getUniqueId());
 
             p.setGliding(true);

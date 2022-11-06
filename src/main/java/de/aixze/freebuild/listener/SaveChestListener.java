@@ -31,7 +31,9 @@ public class SaveChestListener implements Listener {
             b.setType(Material.AIR);
 
             for (ItemStack items : SaveChestUtils.getSaveChestInventory(b).getContents()) {
-                b.getWorld().dropItemNaturally(b.getLocation(), items);
+                if (items != null) {
+                    b.getWorld().dropItemNaturally(b.getLocation(), items);
+                }
             }
 
             SaveChestUtils.removeSaveChest(b);

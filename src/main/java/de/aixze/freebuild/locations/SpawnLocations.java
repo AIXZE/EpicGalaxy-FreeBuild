@@ -79,8 +79,8 @@ public class SpawnLocations {
         return islandLocation;
     }
 
-    public static boolean isInsideIslandArea(final Player p) {
-        return getIslandLocation().distance(p.getLocation()) <= 10;
+    public static boolean isInsideIslandArea(final Location loc) {
+        return Objects.requireNonNull(loc.getWorld(), "World is null!").getName().equals("world") && getIslandLocation().distance(loc) <= 10;
     }
 
     public static Location getSpawnLocation() {
@@ -91,7 +91,7 @@ public class SpawnLocations {
         return spawnPointLocation;
     }
 
-    public static boolean isInsideSpawnArea(final Player p) {
-        return getSpawnPointLocation().distance(p.getLocation()) <= 30;
+    public static boolean isInsideSpawnArea(final Location loc) {
+        return Objects.requireNonNull(loc.getWorld(), "World is null!").getName().equals("world") && getSpawnPointLocation().distance(loc) <= 30;
     }
 }

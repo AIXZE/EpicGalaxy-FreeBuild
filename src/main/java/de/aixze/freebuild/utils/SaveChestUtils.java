@@ -9,6 +9,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
+import java.util.logging.Level;
 
 /**
  * JavaDoc this file!
@@ -45,7 +46,7 @@ public class SaveChestUtils {
         p.sendMessage(Main.getInstance().prefix + "§cEine §eSaveChest §cmit deinen Items wurde an deinem Todespunkt erstellt.");
         p.sendMessage(Main.getInstance().prefix + "§aPosition§7: §a" + world + " §7[§a" + x + "§7/§a" + y + "§7/§a" + z + "§7]");
 
-        System.out.println("SaveChest von " + p.getName() + ": Welt: " + world + "[" + x + "/" + y + "/" + z + "]");
+        Main.getInstance().getLogger().log(Level.INFO, "SaveChest von " + p.getName() + ": Welt: " + world + " [" + x + "/" + y + "/" + z + "]");
     }
 
     public static boolean isSaveChest(final Block b) {

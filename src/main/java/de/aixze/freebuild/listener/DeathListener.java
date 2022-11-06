@@ -3,6 +3,7 @@ package de.aixze.freebuild.listener;
 import de.aixze.freebuild.locations.SpawnLocations;
 import de.aixze.freebuild.main.Main;
 import de.aixze.freebuild.utils.SaveChestUtils;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,6 +22,7 @@ public class DeathListener implements Listener {
     public void handleDeath(final PlayerDeathEvent e) {
         Player p = e.getEntity();
         Player killer = p.getKiller();
+        Location loc = p.getLocation();
 
         if(killer != null && p != killer) {
             e.setDeathMessage(Main.getInstance().prefix + p.getDisplayName() + " §7wurde von §a" + killer.getDisplayName() + " §7getötet.");
@@ -28,7 +30,7 @@ public class DeathListener implements Listener {
             e.setDeathMessage(Main.getInstance().prefix + p.getDisplayName() + " §7ist gestorben.");
         }
 
-        if(!(SpawnLocations.isInsideSpawnArea(p) || SpawnLocations.isInsideSpawnArea(p))) {
+        if(!(SpawnLocations.isInsideSpawnArea(loc) || SpawnLocations.isInsideSpawnArea(loc))) {
             e.getDrops().clear();
 
             SaveChestUtils.createSaveChest(p);
